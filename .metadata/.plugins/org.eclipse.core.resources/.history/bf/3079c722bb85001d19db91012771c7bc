@@ -1,0 +1,9 @@
+package com.kr.my.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class SampleServiceImpl implements sampleSerivce {
+	@Autowired
+	SampleService sampleService;
+}

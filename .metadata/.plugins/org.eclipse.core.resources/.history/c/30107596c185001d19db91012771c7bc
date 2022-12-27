@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sample">
+	<select id="sampleList" resultType="com.kr.my.dto.SampleDTO">
+		select * from sample
+	</select>
+	<insert id="addsample">
+		insert into sample(id, pw) values #{id}, #{pw}
+	</insert>
+	<insert id="getSample" >
+		insert into sample(id, pw) values #{id}, #{pw}
+	</insert>
+</mapper>
+<!-- namespace나 해당 명령의 id는 중복되면 절대 안됨 -->
