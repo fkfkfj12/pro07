@@ -7,5 +7,5 @@ import com.kr.my.dto.userDTO;
 public interface userDAO {
 	public List<userDTO> userList() throws Exception;
 	public userDTO getuser(String id) throws Exception;
-
+	public void adduser(userDTO dto) throws Exception;
 }

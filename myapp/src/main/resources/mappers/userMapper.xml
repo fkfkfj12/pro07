@@ -6,7 +6,7 @@
 	<select id="userList" resultType="com.kr.my.dto.userDTO">
 		select * from user1
 	</select>
-	<insert id="addsample">
+	<insert id="adduser">
 		insert into user1(id, pw, name) values #{id}, #{pw} , #{name}
 	</insert>
 

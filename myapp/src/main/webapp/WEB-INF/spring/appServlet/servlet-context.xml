@@ -17,14 +17,16 @@
 	<resources mapping="/common/**" location="/WEB-INF/views/common" />
 	<resources mapping="/include/**" location="/WEB-INF/views/include" />
 	<resources mapping="/user/**" location="/WEB-INF/views/user" />
-	<resources mapping="/notice/**" location="/WEB-INF/views/notice" />
+	<resources mapping="/board/**" location="/WEB-INF/views/board" />
 	<resources mapping="/util/**" location="/WEB-INF/views/util" />
 	<resources mapping="/qna/**" location="/WEB-INF/views/qna" />
 	<resources mapping="/data/**" location="/WEB-INF/views/data" />
 	<resources mapping="/reservate/**" location="/WEB-INF/views/reservate" />
 	<resources mapping="/research/**" location="/WEB-INF/views/research" />
 	<resources mapping="/sample/**" location="/WEB-INF/views/sample" />
-
+	<resources mapping="/**" location="/WEB-INF/views" />
+	<resources mapping="/pree/**" location="/WEB-INF/views/pree" />
+	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />

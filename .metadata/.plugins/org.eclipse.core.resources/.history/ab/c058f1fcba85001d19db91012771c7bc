@@ -1,5 +1,0 @@
-package com.kr.my.service;
-
-public interface sampleService {
-
-}

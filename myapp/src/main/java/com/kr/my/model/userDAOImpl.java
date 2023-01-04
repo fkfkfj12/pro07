@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.kr.my.dto.SampleDTO;
+
 import com.kr.my.dto.userDTO;
 
 @Repository
@@ -26,7 +26,10 @@ public class userDAOImpl implements userDAO {
 		
 	}
 	
-	
+	@Override
+	public void adduser(userDTO dto) throws Exception {
+		sqlSession.insert("user.adduser", dto);
+	}
 	
 
 }

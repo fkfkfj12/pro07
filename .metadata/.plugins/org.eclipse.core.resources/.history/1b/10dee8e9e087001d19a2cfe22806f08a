@@ -1,0 +1,5 @@
+package com.kr.my.dto;
+
+public class BoardDTO {
+
+}

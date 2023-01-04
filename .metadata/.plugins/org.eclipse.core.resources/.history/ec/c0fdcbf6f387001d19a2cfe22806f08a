@@ -1,0 +1,83 @@
+package com.kr.my.controller;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.kr.my.dto.BoardDTO;
+import com.kr.my.service.BoardService;
+
+@Controller
+@RequestMapping("/board/")
+public class BoardController {
+
+	@Autowired
+	private BoardService boardService;
+	
+	@GetMapping("boardList")		//board/list.do
+	public String getboardList(Model model) throws Exception {
+		List<BoardDTO> boardList = boardService.boardList(); 
+		model.addAttribute("boardList", boardList);
+		return "board/boardList";
+	}
+	
+	@GetMapping("boardDetail")	//board/detail.do?seq=1
+	public String getboardDetail(HttpServletRequest request, Model model) throws Exception {
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		BoardDTO dto = boardService.boardDetail(seq);
+		model.addAttribute("dto", dto);
+		return "board/boardDetail";
+	}
+	
+	@GetMapping("boardInsert")
+	public String insertForm(HttpServletRequest request, Model model) throws Exception {
+		return "board/boardInsert";
+	}
+	
+	@PostMapping("boardInsert")
+	public String boardInsert(HttpServletRequest request, Model model) throws Exception {
+		BoardDTO dto = new BoardDTO();
+		dto.setTitle(request.getParameter("title"));
+		dto.setContent(request.getParameter("content"));
+		boardService.boardInsert(dto);
+		
+		return "redirect:boardList";
+	}
+	
+	@GetMapping("boardDelete")
+	public String boardDelete(HttpServletRequest request, Model model) throws Exception {
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		boardService.boardDelete(seq);
+		
+		return "redirect:boardList";
+	}
+	
+	@GetMapping("edit.do")
+	public String editForm(HttpServletRequest request, Model model) throws Exception {
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		BoardDTO dto = boardService.boardDetail(seq);
+		model.addAttribute("dto", dto);
+		return "board/boardEdit";
+	}
+	
+	@PostMapping("edit.do")
+	public String boardEdit(HttpServletRequest request, Model model) throws Exception {
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		
+		BoardDTO dto = new BoardDTO();
+		dto.setSeq(seq);
+		dto.setTitle(request.getParameter("title"));
+		dto.setContent(request.getParameter("content"));
+		boardService.boardEdit(dto);
+		
+		return "redirect:list.do";
+	}
+	
+}

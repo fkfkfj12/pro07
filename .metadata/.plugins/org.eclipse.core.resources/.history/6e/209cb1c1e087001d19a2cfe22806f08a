@@ -1,0 +1,5 @@
+package com.kr.my.model;
+
+public class BoardDAO {
+
+}

@@ -1,17 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <html>
 <head>
- <meta charset="UTF-8">
-    
+	<meta charset="UTF-8">
 	<title>Home</title>
 </head>
 <body>
+<header>
+<div>
+<ul>
+	<li><a href="user/userList"><span>회원목록</span></a>
+	<li><a href="user/userAdd"><span>회원가입</span></a>
+	<li><a href="board/boardList"><span>게시판</span></a>
+	<li><a href="free/freeList"><span>자유게시판</span></a>
+</ul>
+</div>
+</header>
 <h1>
-	Hello world!  
+	고양시 자원봉사 센터
 </h1>
+<div>
 
-<P>  The time on the server is ${serverTime}. </P>
+</div>
+<P>  </P>
 </body>
 </html>

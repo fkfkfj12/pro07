@@ -23,7 +23,10 @@ public class userServiceImpl implements userService {
 		return user.getuser(id);
 	}
 
-	
+	@Override
+	public void adduser(userDTO dto) throws Exception {
+		user.adduser(dto);
+	}
 
 	
 
